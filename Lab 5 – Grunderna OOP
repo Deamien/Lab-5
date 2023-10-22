@@ -1,0 +1,37 @@
+using System;
+
+class Circle
+{
+    int _radius;
+
+    public Circle(int radius)
+    {
+        _radius = radius;
+    }
+
+    public double GetArea()
+    {
+        double area = Math.PI * _radius * _radius;
+        return area;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ange radien för cirkeln: ");
+        string userInput = Console.ReadLine();
+
+        if (int.TryParse(userInput, out int radius))
+        {
+            Circle circle = new Circle(radius);
+            double area = circle.GetArea();
+            Console.WriteLine("arean av cirkeln är: " + area);
+        }
+        else
+        {
+            Console.WriteLine("Ogiltigt inmatning. Ange ett heltal som radien.");
+        }
+    }
+}
